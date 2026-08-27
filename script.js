@@ -2,6 +2,7 @@ const translations = {
   ja: {
     navHow:"使い方", navWhy:"特徴", navSafety:"安心して使うために", navTeach:"講師として参加",
     start:"無料で始める", eyebrow:"5 MINUTES. REAL CONVERSATION.",
+    promo:"🎉 年内は開発中につき、1レッスン100円。いまのうちにお試しください。",
     heroTitle:"長いレッスンじゃなくていい。<br>5分だけ、話してみよう。",
     heroLead:"QuickLessonは、すきま時間に外国語を話せるオンライン会話サービスです。予約で予定を埋めず、短い時間から気軽に会話量を増やせます。",
     startNow:"今すぐ始める", seeHow:"使い方を見る →", meta1:"✓ 5分から", meta2:"✓ オンライン", meta3:"✓ 4言語対応",
@@ -36,6 +37,7 @@ const translations = {
   en: {
     navHow:"How it works", navWhy:"Why QuickLesson", navSafety:"Safety", navTeach:"Teach",
     start:"Start free", eyebrow:"5 MINUTES. REAL CONVERSATION.",
+    promo:"🎉 In development through 2026 — lessons are just ¥100 each. Try it while it lasts.",
     heroTitle:"You don't need a long lesson.<br>Just speak for five minutes.",
     heroLead:"QuickLesson is an online conversation service made for short pockets of time. Practice speaking without filling your calendar with long lessons.",
     startNow:"Start now", seeHow:"See how it works →", meta1:"✓ From 5 minutes", meta2:"✓ Online", meta3:"✓ 4 languages",
@@ -70,6 +72,7 @@ const translations = {
   fr: {
     navHow:"Comment ça marche", navWhy:"Pourquoi QuickLesson", navSafety:"Sécurité", navTeach:"Devenir professeur",
     start:"Commencer gratuitement", eyebrow:"5 MINUTES. UNE VRAIE CONVERSATION.",
+    promo:"🎉 En développement jusqu'à fin 2026 — chaque leçon à seulement 100 ¥. Profitez-en.",
     heroTitle:"Pas besoin d'un long cours.<br>Parlez simplement pendant 5 minutes.",
     heroLead:"QuickLesson est un service de conversation en ligne pensé pour les petits moments libres. Entraînez-vous à parler sans bloquer une heure entière dans votre agenda.",
     startNow:"Commencer maintenant", seeHow:"Voir comment ça marche →", meta1:"✓ Dès 5 minutes", meta2:"✓ En ligne", meta3:"✓ 4 langues",
@@ -104,6 +107,7 @@ const translations = {
   es: {
     navHow:"Cómo funciona", navWhy:"Por qué QuickLesson", navSafety:"Seguridad", navTeach:"Enseñar",
     start:"Empezar gratis", eyebrow:"5 MINUTOS. CONVERSACIÓN REAL.",
+    promo:"🎉 En desarrollo hasta finales de 2026 — cada lección cuesta solo 100 ¥. Aprovecha ahora.",
     heroTitle:"No necesitas una clase larga.<br>Habla solo durante 5 minutos.",
     heroLead:"QuickLesson es un servicio de conversación online pensado para pequeños ratos libres. Practica hablar sin llenar tu agenda con clases largas.",
     startNow:"Empezar ahora", seeHow:"Ver cómo funciona →", meta1:"✓ Desde 5 minutos", meta2:"✓ Online", meta3:"✓ 4 idiomas",
