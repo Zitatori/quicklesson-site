@@ -1,5 +1,10 @@
 # QuickLesson 公式サイト（初稿）
 
+## 公開URL
+- 本番（GitHub Pages）: https://zitatori.github.io/quicklesson-site/
+- `main` に push すると自動で再ビルド（数十秒〜1分）
+- リポジトリ: https://github.com/Zitatori/quicklesson-site
+
 ## ファイル
 - `index.html` : 1ページ構成の公式サイト
 - `styles.css` : デザイン
@@ -29,9 +34,10 @@
 5. 独自ドメイン取得後、OGP / canonical / sitemap等を追加
 6. 利用規約・プライバシーポリシーの公開ページがあればフッターからリンク
 
-## Renderで公開する場合
-Static Siteとして、このフォルダをGitHubに置いてRenderへ接続できます。
-Build commandは不要、Publish directoryは `.` でOKです。
+## ホスティング
+- 現在は GitHub Pages（`main` ブランチ / ルート、HTTPS 強制）。
+- Render に移す場合は Static Site として接続。Build command 不要、Publish directory は `.`。
+- 独自ドメインを取得したら Pages / Render どちらでも後から接続可能（`quicklesson.com` は取得済みのため別候補が必要）。
 
 ## 方針
 これは「SEO記事サイト」ではなく、まずはQuickLessonの公式説明ページとして作っています。
