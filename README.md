@@ -18,8 +18,8 @@
 - スマホ対応
 
 ## 公開前に必ず変えるところ
-1. `index.html` の講師応募メール
-   - 現在は `hello@quicklesson.example` という仮アドレスです。
+1. 講師応募メール
+   - 現在は `zitatori@gmail.com`。専用アドレスやGoogleフォームに切り替える場合は `index.html` の `#teach` セクションと `script.js` の `mailNote` を変更。
 2. 必要に応じてQuickLesson本体URL
    - 現在は `https://django-5min-languageapp.onrender.com/`
 3. Google Analytics

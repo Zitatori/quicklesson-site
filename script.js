@@ -27,7 +27,7 @@ const translations = {
     safe3Title:"講師は厳選（合格率およそ1%）", safe3Text:"報酬を得て教える講師は一般利用とは別に応募・審査があり、通過するのは応募者のおよそ1%です。",
     teachKicker:"TEACH WITH QUICKLESSON", teachTitle:"講師として参加したい方へ。",
     teachText:"QuickLessonを学習者として利用する登録とは別に、講師として報酬を得て参加する場合は応募・審査があります。",
-    teachButton:"講師応募について", mailNote:"※公開前に講師応募用メールアドレスへ変更してください。",
+    teachButton:"講師応募について", mailNote:"応募は zitatori@gmail.com へ。話せる言語と、教えた経験があれば簡単にお書きください。",
     ctaKicker:"START SMALL", ctaTitle:"まず、5分だけ話してみる。", ctaText:"長い予定を入れなくても、外国語を話す時間は作れます。",
     startFree:"無料で始める", footerText:"5分から始める、オンライン語学会話。"
   },
@@ -59,7 +59,7 @@ const translations = {
     safe3Title:"Highly selective tutors (~1% accepted)", safe3Text:"Paid tutors apply separately from regular use and are screened. Only about 1% of applicants are accepted.",
     teachKicker:"TEACH WITH QUICKLESSON", teachTitle:"Interested in teaching?",
     teachText:"Using QuickLesson as a learner is separate from joining as a paid tutor. Tutor applicants go through an application and review process.",
-    teachButton:"Tutor applications", mailNote:"Replace this placeholder email address before publishing.",
+    teachButton:"Tutor applications", mailNote:"Email zitatori@gmail.com with the languages you can teach and any teaching experience.",
     ctaKicker:"START SMALL", ctaTitle:"Start with five minutes.", ctaText:"You don't need a long appointment to make time for speaking practice.",
     startFree:"Start free", footerText:"Online language conversation, from five minutes."
   },
@@ -91,7 +91,7 @@ const translations = {
     safe3Title:"Professeurs très sélectionnés (~1% retenus)", safe3Text:"Les professeurs rémunérés postulent séparément et sont évalués. Environ 1% des candidats sont retenus.",
     teachKicker:"ENSEIGNER AVEC QUICKLESSON", teachTitle:"Vous souhaitez enseigner ?",
     teachText:"L'utilisation de QuickLesson comme apprenant est distincte de la participation comme professeur rémunéré. Les candidatures sont examinées séparément.",
-    teachButton:"Candidature professeur", mailNote:"Remplacez l'adresse e-mail provisoire avant la mise en ligne.",
+    teachButton:"Candidature professeur", mailNote:"Écrivez à zitatori@gmail.com en indiquant les langues que vous pouvez enseigner et votre expérience.",
     ctaKicker:"COMMENCEZ PETIT", ctaTitle:"Commencez par 5 minutes.", ctaText:"Pas besoin de réserver longtemps pour trouver un moment où parler une langue.",
     startFree:"Commencer gratuitement", footerText:"Conversation linguistique en ligne, dès 5 minutes."
   },
@@ -123,7 +123,7 @@ const translations = {
     safe3Title:"Tutores muy seleccionados (~1% admitidos)", safe3Text:"Los tutores remunerados solicitan participar por separado y pasan una revisión. Solo se admite alrededor del 1% de las solicitudes.",
     teachKicker:"ENSEÑA CON QUICKLESSON", teachTitle:"¿Te interesa enseñar?",
     teachText:"Usar QuickLesson como estudiante es distinto de participar como tutor remunerado. Las solicitudes de tutores se revisan por separado.",
-    teachButton:"Solicitud para tutores", mailNote:"Sustituye el correo provisional antes de publicar la web.",
+    teachButton:"Solicitud para tutores", mailNote:"Escribe a zitatori@gmail.com indicando los idiomas que puedes enseñar y tu experiencia.",
     ctaKicker:"EMPIEZA PEQUEÑO", ctaTitle:"Empieza con cinco minutos.", ctaText:"No necesitas una cita larga para encontrar tiempo para practicar conversación.",
     startFree:"Empezar gratis", footerText:"Conversación online de idiomas, desde cinco minutos."
   }
