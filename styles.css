@@ -157,20 +157,21 @@ button, select { font: inherit; }
 }
 .app-title { margin:11px 0 4px; font-size:16px; letter-spacing:-.03em; color:#111827; }
 .app-sub { margin:0 0 14px; font-size:10px; line-height:1.5; color:#6b7280; }
-.session-card {
-  background:linear-gradient(135deg,#1e1b4b 0%,#312e81 100%);
-  color:#e0e7ff; border-radius:16px; padding:15px;
+.lang-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.lang-tile {
+  border-radius:14px; padding:11px 11px 10px; color:#fff; min-height:82px;
+  display:flex; flex-direction:column; gap:5px;
+  box-shadow:0 8px 18px rgba(17,24,39,.12);
 }
-.session-label { font-size:8px; font-weight:800; letter-spacing:.16em; color:#a5b4fc; }
-.session-date { display:block; font-size:13px; color:#fff; margin:6px 0 10px; letter-spacing:-.02em; }
-.session-row { display:flex; align-items:baseline; gap:8px; margin-bottom:4px; }
-.session-row b { font-size:15px; color:#c7d2fe; letter-spacing:-.04em; }
-.session-row span { font-size:8px; font-weight:700; letter-spacing:.06em; color:#a5b4fc; text-transform:uppercase; }
-.session-langs { display:flex; flex-wrap:wrap; gap:5px; margin-top:11px; }
-.session-langs span {
-  background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.12);
-  border-radius:99px; padding:4px 8px; font-size:8px; font-weight:600; color:#e0e7ff;
-}
+.lang-flag { font-size:16px; line-height:1; }
+.lang-tile b { font-size:12px; font-weight:800; letter-spacing:-.02em; margin-top:auto; }
+.lang-status { display:flex; align-items:center; gap:4px; font-size:7px; font-weight:800; letter-spacing:.09em; text-transform:uppercase; opacity:.95; }
+.lang-status i { width:5px; height:5px; border-radius:50%; background:#4ade80; display:inline-block; }
+.lang-status.off i { background:rgba(255,255,255,.55); }
+.lt-en { background:linear-gradient(150deg,#3b82f6,#1d4ed8); }
+.lt-fr { background:linear-gradient(150deg,#8b5cf6,#6d28d9); }
+.lt-es { background:linear-gradient(150deg,#f59e0b,#c2410c); }
+.lt-ja { background:linear-gradient(150deg,#f43f5e,#be123c); }
 .app-cta {
   margin-top:14px; text-align:center; font-size:11px; font-weight:800; color:#fff;
   background:linear-gradient(135deg,#6366f1 0%,#818cf8 100%);
