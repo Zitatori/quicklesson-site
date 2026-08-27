@@ -241,6 +241,9 @@ button, select { font: inherit; }
 .teacher-card > div { max-width:720px; }
 .teacher-card h2 { font-size:clamp(30px,4vw,48px); }
 .teacher-card p:last-child { color:var(--muted);margin:16px 0 0; }
+.founder-note { max-width:720px;margin-top:30px;padding-left:16px;border-left:2px solid #6366f1; }
+.founder-note p { margin:0;color:var(--muted);font-size:14px; }
+.founder-sign { margin-top:8px !important;font-size:13px;color:#8a909a; }
 .placeholder-note { color:#8a909a;font-size:11px;margin-top:12px; }
 
 .cta-section { padding:0 0 108px; }

@@ -28,6 +28,8 @@ const translations = {
     teachKicker:"TEACH WITH QUICKLESSON", teachTitle:"講師として参加したい方へ。",
     teachText:"QuickLessonを学習者として利用する登録とは別に、講師として報酬を得て参加する場合は応募・審査があります。",
     teachButton:"講師応募について", mailNote:"応募は zitatori@gmail.com へ。話せる言語と、教えた経験があれば簡単にお書きください。",
+    founderNote:"QuickLessonは、語学を学ぶ一人のユーザーとして「長い予約なしで、5分だけ話せる場所がほしい」と思って作ったサービスです。講師の応募・選考も、運営者が直接おこなっています。",
+    founderSign:"— QuickLesson 運営者　Misuzu Ditmeyer",
     ctaKicker:"START SMALL", ctaTitle:"まず、5分だけ話してみる。", ctaText:"長い予定を入れなくても、外国語を話す時間は作れます。",
     startFree:"無料で始める", footerText:"5分から始める、オンライン語学会話。"
   },
@@ -60,6 +62,8 @@ const translations = {
     teachKicker:"TEACH WITH QUICKLESSON", teachTitle:"Interested in teaching?",
     teachText:"Using QuickLesson as a learner is separate from joining as a paid tutor. Tutor applicants go through an application and review process.",
     teachButton:"Tutor applications", mailNote:"Email zitatori@gmail.com with the languages you can teach and any teaching experience.",
+    founderNote:"QuickLesson was built by one language learner who wanted a place to speak for five minutes without booking a long lesson. Tutor applications and screening are handled directly by the operator.",
+    founderSign:"— Misuzu Ditmeyer, QuickLesson",
     ctaKicker:"START SMALL", ctaTitle:"Start with five minutes.", ctaText:"You don't need a long appointment to make time for speaking practice.",
     startFree:"Start free", footerText:"Online language conversation, from five minutes."
   },
@@ -92,6 +96,8 @@ const translations = {
     teachKicker:"ENSEIGNER AVEC QUICKLESSON", teachTitle:"Vous souhaitez enseigner ?",
     teachText:"L'utilisation de QuickLesson comme apprenant est distincte de la participation comme professeur rémunéré. Les candidatures sont examinées séparément.",
     teachButton:"Candidature professeur", mailNote:"Écrivez à zitatori@gmail.com en indiquant les langues que vous pouvez enseigner et votre expérience.",
+    founderNote:"QuickLesson a été créé par une personne qui apprend des langues et voulait un endroit pour parler cinq minutes sans réserver un long cours. Les candidatures et la sélection des professeurs sont gérées directement par le responsable du service.",
+    founderSign:"— Misuzu Ditmeyer, QuickLesson",
     ctaKicker:"COMMENCEZ PETIT", ctaTitle:"Commencez par 5 minutes.", ctaText:"Pas besoin de réserver longtemps pour trouver un moment où parler une langue.",
     startFree:"Commencer gratuitement", footerText:"Conversation linguistique en ligne, dès 5 minutes."
   },
@@ -124,6 +130,8 @@ const translations = {
     teachKicker:"ENSEÑA CON QUICKLESSON", teachTitle:"¿Te interesa enseñar?",
     teachText:"Usar QuickLesson como estudiante es distinto de participar como tutor remunerado. Las solicitudes de tutores se revisan por separado.",
     teachButton:"Solicitud para tutores", mailNote:"Escribe a zitatori@gmail.com indicando los idiomas que puedes enseñar y tu experiencia.",
+    founderNote:"QuickLesson fue creado por una persona que aprende idiomas y quería un lugar donde hablar cinco minutos sin reservar una clase larga. Las solicitudes y la selección de tutores las gestiona directamente el responsable del servicio.",
+    founderSign:"— Misuzu Ditmeyer, QuickLesson",
     ctaKicker:"EMPIEZA PEQUEÑO", ctaTitle:"Empieza con cinco minutos.", ctaText:"No necesitas una cita larga para encontrar tiempo para practicar conversación.",
     startFree:"Empezar gratis", footerText:"Conversación online de idiomas, desde cinco minutos."
   }
