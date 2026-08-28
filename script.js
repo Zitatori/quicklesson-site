@@ -10,7 +10,7 @@ const translations = {
     practice:"Practice",
     whyKicker:"WHY QUICKLESSON", whyTitle:"5分から始める、会話練習。",
     whyLead:"長いレッスンを予約しなくても、外国語は練習できます。話したいと思った時に、まずは5分から。",
-    feature1Title:"たった5分", feature1Text:"まとまった時間がなくても、会話練習を生活の中に入れやすい短さです。",
+    feature1Title:"たった5分", feature1Text:"忙しい日でも、5分なら気軽に続けられます。",
     feature2Title:"話すことに集中", feature2Text:"長いカリキュラムより、「今、話す」ことをシンプルに始められます。",
     feature3Title:"複数言語に対応", feature3Text:"英語だけでなく、日本語・フランス語・スペイン語の会話練習にも。",
     howKicker:"HOW IT WORKS", howTitle:"始め方はシンプル。",
