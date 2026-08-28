@@ -12,7 +12,7 @@ const translations = {
     whyLead:"長いレッスンを予約しなくても、外国語は練習できます。話したいと思った時に、まずは5分から。",
     feature1Title:"たった5分", feature1Text:"忙しい日でも、5分なら気軽に続けられます。",
     feature2Title:"とにかく話してみる", feature2Text:"難しいカリキュラムはありません。まずは5分、実際に話してみましょう。",
-    feature3Title:"複数言語に対応", feature3Text:"英語だけでなく、日本語・フランス語・スペイン語の会話練習にも。",
+    feature3Title:"複数言語に対応", feature3Text:"英語、日本語、フランス語、スペイン語に対応しています。",
     howKicker:"HOW IT WORKS", howTitle:"始め方はシンプル。",
     step1Title:"無料登録", step1Text:"アカウントを作り、練習したい言語を選びます。",
     step2Title:"オンラインの相手を探す", step2Text:"利用可能な相手がいる時間にアクセスします。",
