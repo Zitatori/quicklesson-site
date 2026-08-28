@@ -6,7 +6,7 @@ const translations = {
     heroTitle:"たった5分。<br>もっと気軽に外国語を話そう。",
     heroLead:"QuickLessonは、外国語を5分だけ話せるオンライン会話サービスです。予約不要で、空いた時間に気軽に会話を楽しめます。",
     startNow:"今すぐ始める", seeHow:"使い方を見る →", meta1:"✓ 5分から", meta2:"✓ オンライン", meta3:"✓ 4言語対応",
-    smallEnough:"5分だから始めやすい", smallEnoughSub:"「勉強」より先に、まず話す。", languageMix:"EN · JP · FR · ES",
+    smallEnough:"5分なら気軽に話せる", smallEnoughSub:"覚えた外国語を、実際の会話で。", languageMix:"EN · JP · FR · ES",
     practice:"Practice",
     whyKicker:"WHY QUICKLESSON", whyTitle:"会話練習を、もっと小さく。",
     whyLead:"「1時間のレッスンを予約するほどではない。でも話す練習はしたい。」そんな時に使えるサービスを目指しています。",
