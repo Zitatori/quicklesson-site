@@ -8,7 +8,7 @@ const translations = {
     startNow:"今すぐ始める", seeHow:"使い方を見る →", meta1:"✓ 5分から", meta2:"✓ オンライン", meta3:"✓ 4言語対応",
     smallEnough:"5分なら気軽に話せる", smallEnoughSub:"覚えた外国語を、実際の会話で。", languageMix:"EN · JP · FR · ES",
     practice:"Practice",
-    whyKicker:"WHY QUICKLESSON", whyTitle:"会話練習を、もっと小さく。",
+    whyKicker:"WHY QUICKLESSON", whyTitle:"5分から始める、会話練習。",
     whyLead:"「1時間のレッスンを予約するほどではない。でも話す練習はしたい。」そんな時に使えるサービスを目指しています。",
     feature1Title:"たった5分", feature1Text:"まとまった時間がなくても、会話練習を生活の中に入れやすい短さです。",
     feature2Title:"話すことに集中", feature2Text:"長いカリキュラムより、「今、話す」ことをシンプルに始められます。",
