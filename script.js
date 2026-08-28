@@ -2,7 +2,7 @@ const translations = {
   ja: {
     navHow:"使い方", navWhy:"特徴", navSafety:"安心して使うために", navTeach:"講師として参加",
     start:"無料で始める", eyebrow:"5 MINUTES. REAL CONVERSATION.",
-    promo:"🎉 先行公開中（2026年12月まで）：1レッスン100円。いまのうちにお試しください。",
+    promo:"🎉 先行公開中｜2026年12月まで 1レッスン100円",
     heroTitle:"たった5分。<br>もっと気軽に外国語を話そう。",
     heroLead:"QuickLessonは、外国語を5分だけ話せるオンライン会話サービスです。予約不要で、空いた時間に気軽に会話を楽しめます。",
     startNow:"今すぐ始める", seeHow:"使い方を見る →", meta1:"✓ 5分から", meta2:"✓ オンライン", meta3:"✓ 4言語対応",
