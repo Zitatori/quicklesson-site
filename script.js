@@ -9,7 +9,7 @@ const translations = {
     smallEnough:"5分なら気軽に話せる", smallEnoughSub:"覚えた外国語を、実際の会話で。", languageMix:"EN · JP · FR · ES",
     practice:"Practice",
     whyKicker:"WHY QUICKLESSON", whyTitle:"5分から始める、会話練習。",
-    whyLead:"「1時間のレッスンを予約するほどではない。でも話す練習はしたい。」そんな時に使えるサービスを目指しています。",
+    whyLead:"長いレッスンを予約しなくても、外国語は練習できます。話したいと思った時に、まずは5分から。",
     feature1Title:"たった5分", feature1Text:"まとまった時間がなくても、会話練習を生活の中に入れやすい短さです。",
     feature2Title:"話すことに集中", feature2Text:"長いカリキュラムより、「今、話す」ことをシンプルに始められます。",
     feature3Title:"複数言語に対応", feature3Text:"英語だけでなく、日本語・フランス語・スペイン語の会話練習にも。",
