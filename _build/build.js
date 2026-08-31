@@ -40,7 +40,10 @@ const LP_LANG_URLS = Object.fromEntries(LANGS.map((l) => [l, `/${l}/`]));
 
 // SEO landing pages linked from the footer, per language. Keep the labels short.
 const GUIDES = {
-  ja: [{ href: "/ja/english-speaking-practice/", label: "英語を話す機会がない人へ" }],
+  ja: [
+    { href: "/ja/english-speaking-practice/", label: "英語を話す機会がない人へ" },
+    { href: "/ja/spanish-speaking-practice/", label: "趣味で始めるスペイン語" },
+  ],
   en: [{ href: "/en/japanese-speaking-practice/", label: "Japanese speaking practice" }],
   fr: [],
   es: [],
@@ -80,6 +83,25 @@ const PAGES = [
     navPrefix: "",
     home: "#top",
   })),
+
+  {
+    lang: "ja",
+    out: "ja/spanish-speaking-practice/index.html",
+    body: "pages/seo/ja-spanish-speaking-practice.html",
+    strings: translations.ja, // header / footer chrome only
+    title:
+      "スペイン語を話せるようになりたい人へ｜趣味・サッカー・フラメンコから始めるスペイン語会話",
+    metaDesc:
+      "スペイン語を趣味で始めたい方へ。サッカーやフラメンコなど好きなことをきっかけに、予約なしで5分だけスペイン語を話す練習方法を紹介します。",
+    ogDesc: "サッカー・フラメンコ・旅行から。予約なしで5分だけスペイン語を話す練習。",
+    ogType: "article",
+    ogLocale: "ja_JP",
+    canonical: `${BASE}/ja/spanish-speaking-practice/`,
+    hreflang: `  <link rel="alternate" hreflang="ja" href="${BASE}/ja/spanish-speaking-practice/" />`,
+    langUrls: LP_LANG_URLS,
+    navPrefix: "/ja/",
+    home: "/ja/",
+  },
 
   {
     lang: "ja",
