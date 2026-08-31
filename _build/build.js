@@ -38,6 +38,22 @@ const LP_HREFLANG = [
 ].join("\n");
 const LP_LANG_URLS = Object.fromEntries(LANGS.map((l) => [l, `/${l}/`]));
 
+// SEO topic cluster: "practice speaking Japanese online" for non-Japanese
+// speakers, published in EN and ES. These are hreflang alternates of each
+// other; the language switch on either page hops to the sibling.
+const JP_PRACTICE = {
+  hreflang: [
+    `  <link rel="alternate" hreflang="en" href="${BASE}/en/japanese-speaking-practice/" />`,
+    `  <link rel="alternate" hreflang="es" href="${BASE}/es/japanese-speaking-practice/" />`,
+    `  <link rel="alternate" hreflang="x-default" href="${BASE}/en/japanese-speaking-practice/" />`,
+  ].join("\n"),
+  langUrls: {
+    ...LP_LANG_URLS,
+    en: "/en/japanese-speaking-practice/",
+    es: "/es/japanese-speaking-practice/",
+  },
+};
+
 // SEO landing pages linked from the footer, per language. Keep the labels short.
 const GUIDES = {
   ja: [
@@ -50,7 +66,7 @@ const GUIDES = {
     { href: "/en/spanish-speaking-practice/", label: "Spanish speaking practice" },
   ],
   fr: [],
-  es: [],
+  es: [{ href: "/es/japanese-speaking-practice/", label: "Practicar japonés online" }],
 };
 const GUIDE_LABELS = { ja: "ガイド", en: "Guides", fr: "Guides", es: "Guías" };
 
@@ -176,12 +192,30 @@ const PAGES = [
     ogType: "article",
     ogLocale: "en_US",
     canonical: `${BASE}/en/japanese-speaking-practice/`,
-    // Only the EN version exists today. When the FR / ES articles are written,
-    // add their <link rel="alternate" hreflang="…"> lines here.
-    hreflang: `  <link rel="alternate" hreflang="en" href="${BASE}/en/japanese-speaking-practice/" />`,
-    langUrls: LP_LANG_URLS, // no translated article yet → language switch falls back to the LP
+    hreflang: JP_PRACTICE.hreflang,
+    langUrls: JP_PRACTICE.langUrls,
     navPrefix: "/en/",
     home: "/en/",
+  },
+
+  {
+    lang: "es",
+    out: "es/japanese-speaking-practice/index.html",
+    body: "pages/seo/es-japanese-speaking-practice.html",
+    strings: translations.es, // header / footer chrome only
+    title:
+      "¿Estudias japonés pero no tienes con quién practicar? Cómo practicar japonés online",
+    metaDesc:
+      "¿Estudias japonés pero no tienes con quién hablar? Descubre formas prácticas de practicar conversación en japonés online, aunque solo tengas cinco minutos.",
+    ogDesc:
+      "Formas prácticas de practicar japonés hablado online, aunque solo tengas cinco minutos al día.",
+    ogType: "article",
+    ogLocale: "es_ES",
+    canonical: `${BASE}/es/japanese-speaking-practice/`,
+    hreflang: JP_PRACTICE.hreflang,
+    langUrls: JP_PRACTICE.langUrls,
+    navPrefix: "/es/",
+    home: "/es/",
   },
 ];
 
