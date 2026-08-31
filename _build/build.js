@@ -43,6 +43,7 @@ const GUIDES = {
   ja: [
     { href: "/ja/english-speaking-practice/", label: "英語を話す機会がない人へ" },
     { href: "/ja/spanish-speaking-practice/", label: "趣味で始めるスペイン語" },
+    { href: "/ja/french-speaking-practice/", label: "海外生活とフランス語" },
   ],
   en: [{ href: "/en/japanese-speaking-practice/", label: "Japanese speaking practice" }],
   fr: [],
@@ -83,6 +84,25 @@ const PAGES = [
     navPrefix: "",
     home: "#top",
   })),
+
+  {
+    lang: "ja",
+    out: "ja/french-speaking-practice/index.html",
+    body: "pages/seo/ja-french-speaking-practice.html",
+    strings: translations.ja, // header / footer chrome only
+    title:
+      "フランス語圏に住んでいるのにフランス語が話せない｜海外生活で会話力を身につけるには",
+    metaDesc:
+      "フランス語圏に住んでいるのに会話に入れないと感じていませんか。海外生活で使えるフランス語の会話力を、予約なしの5分から身につける方法を紹介します。",
+    ogDesc: "フランス語圏に住んでいても話せない。海外生活で使える会話力を5分から。",
+    ogType: "article",
+    ogLocale: "ja_JP",
+    canonical: `${BASE}/ja/french-speaking-practice/`,
+    hreflang: `  <link rel="alternate" hreflang="ja" href="${BASE}/ja/french-speaking-practice/" />`,
+    langUrls: LP_LANG_URLS,
+    navPrefix: "/ja/",
+    home: "/ja/",
+  },
 
   {
     lang: "ja",
