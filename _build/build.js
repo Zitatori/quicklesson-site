@@ -66,7 +66,10 @@ const GUIDES = {
     { href: "/en/spanish-speaking-practice/", label: "Spanish speaking practice" },
   ],
   fr: [],
-  es: [{ href: "/es/japanese-speaking-practice/", label: "Practicar japonés online" }],
+  es: [
+    { href: "/es/japanese-speaking-practice/", label: "Practicar japonés online" },
+    { href: "/es/french-speaking-practice/", label: "Francés para el trabajo" },
+  ],
 };
 const GUIDE_LABELS = { ja: "ガイド", en: "Guides", fr: "Guides", es: "Guías" };
 
@@ -196,6 +199,26 @@ const PAGES = [
     langUrls: JP_PRACTICE.langUrls,
     navPrefix: "/en/",
     home: "/en/",
+  },
+
+  {
+    lang: "es",
+    out: "es/french-speaking-practice/index.html",
+    body: "pages/seo/es-french-speaking-practice.html",
+    strings: translations.es, // header / footer chrome only
+    title:
+      "Aprender francés para mejorar tus oportunidades laborales: empieza a hablar desde el principio",
+    metaDesc:
+      "¿Quieres ampliar tus oportunidades laborales? Aprender francés puede abrir puertas si hablas español. Por qué empezar a hablar desde el principio, con práctica de 5 minutos.",
+    ogDesc:
+      "Aprende francés para el trabajo y empieza a hablar desde el principio, cinco minutos a la vez.",
+    ogType: "article",
+    ogLocale: "es_ES",
+    canonical: `${BASE}/es/french-speaking-practice/`,
+    hreflang: `  <link rel="alternate" hreflang="es" href="${BASE}/es/french-speaking-practice/" />`,
+    langUrls: LP_LANG_URLS,
+    navPrefix: "/es/",
+    home: "/es/",
   },
 
   {
