@@ -294,6 +294,8 @@ button, select { font: inherit; }
 .article h1 { margin:12px 0 6px; font-size:clamp(30px,4.6vw,46px); letter-spacing:-.045em; line-height:1.1; }
 .article h2 { margin:46px 0 12px; font-size:clamp(21px,2.8vw,29px); letter-spacing:-.03em; line-height:1.2; }
 .article p { margin:0 0 18px; color:#2f3742; font-size:17px; }
+.article ul { margin:0 0 18px; padding-left:1.25em; color:#2f3742; font-size:17px; }
+.article li { margin:0 0 6px; }
 .article a { color:#4f46e5; font-weight:600; }
 
 footer { background:#0b0f17;color:#fff;padding:54px 0 24px; }

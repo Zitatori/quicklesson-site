@@ -40,7 +40,7 @@ const LP_LANG_URLS = Object.fromEntries(LANGS.map((l) => [l, `/${l}/`]));
 
 // SEO landing pages linked from the footer, per language. Keep the labels short.
 const GUIDES = {
-  ja: [],
+  ja: [{ href: "/ja/english-speaking-practice/", label: "英語を話す機会がない人へ" }],
   en: [{ href: "/en/japanese-speaking-practice/", label: "Japanese speaking practice" }],
   fr: [],
   es: [],
@@ -80,6 +80,24 @@ const PAGES = [
     navPrefix: "",
     home: "#top",
   })),
+
+  {
+    lang: "ja",
+    out: "ja/english-speaking-practice/index.html",
+    body: "pages/seo/ja-english-speaking-practice.html",
+    strings: translations.ja, // header / footer chrome only
+    title: "英語を話す機会がない人へ｜1日5分からできる英会話の練習方法",
+    metaDesc:
+      "英語を勉強していても話す機会がないと感じていませんか。予約なしで、すきま時間に5分だけ英語を話す練習方法を紹介します。ワーキングホリデー前の準備にも。",
+    ogDesc: "予約なしで、すきま時間に5分だけ。英語を話す機会を増やす練習方法。",
+    ogType: "article",
+    ogLocale: "ja_JP",
+    canonical: `${BASE}/ja/english-speaking-practice/`,
+    hreflang: `  <link rel="alternate" hreflang="ja" href="${BASE}/ja/english-speaking-practice/" />`,
+    langUrls: LP_LANG_URLS,
+    navPrefix: "/ja/",
+    home: "/ja/",
+  },
 
   {
     lang: "en",
