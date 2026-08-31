@@ -42,7 +42,22 @@ function render(lang) {
   return html;
 }
 
-function rootRedirect() {
+// Shared client-side language picker: maps the first path segment to a
+// supported language (with a few common aliases like /jp/ -> /ja/), then
+// falls back to the browser language, then to the default.
+const LANG_PICKER = `(function () {
+      var supported = { ${LANGS.map((l) => `${l}: 1`).join(", ")} };
+      var aliases = { jp: "ja", jpn: "ja", nihongo: "ja", eng: "en", english: "en", us: "en", gb: "en", uk: "en", fra: "fr", french: "fr", spa: "es", spanish: "es" };
+      var seg = (location.pathname.split("/").filter(Boolean)[0] || "").toLowerCase();
+      var target = supported[seg] ? seg : aliases[seg];
+      if (!target) {
+        var nav = (navigator.language || navigator.userLanguage || "${DEFAULT_LANG}").slice(0, 2).toLowerCase();
+        target = supported[nav] ? nav : "${DEFAULT_LANG}";
+      }
+      location.replace("/" + target + "/");
+    })();`;
+
+function redirectPage({ robots }) {
   const alternates = LANGS
     .map((l) => `  <link rel="alternate" hreflang="${l}" href="https://quicklesson5min.com/${l}/" />`)
     .join("\n");
@@ -51,22 +66,18 @@ function rootRedirect() {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex" />
+  <meta name="robots" content="${robots}" />
   <title>QuickLesson</title>
   <link rel="canonical" href="https://quicklesson5min.com/${DEFAULT_LANG}/" />
 ${alternates}
   <link rel="alternate" hreflang="x-default" href="https://quicklesson5min.com/${DEFAULT_LANG}/" />
-  <meta http-equiv="refresh" content="0; url=${DEFAULT_LANG}/" />
+  <meta http-equiv="refresh" content="0; url=/${DEFAULT_LANG}/" />
   <script>
-    (function () {
-      var supported = { ${LANGS.map((l) => `${l}: 1`).join(", ")} };
-      var lang = (navigator.language || navigator.userLanguage || "${DEFAULT_LANG}").slice(0, 2).toLowerCase();
-      window.location.replace((supported[lang] ? lang : "${DEFAULT_LANG}") + "/");
-    })();
+    ${LANG_PICKER}
   </script>
 </head>
 <body>
-  <p><a href="${DEFAULT_LANG}/">QuickLesson</a></p>
+  <p><a href="/${DEFAULT_LANG}/">QuickLesson</a></p>
 </body>
 </html>
 `;
@@ -78,5 +89,12 @@ for (const lang of LANGS) {
   fs.writeFileSync(path.join(dir, "index.html"), render(lang));
   console.log(`built /${lang}/index.html`);
 }
-fs.writeFileSync(path.join(ROOT, "index.html"), rootRedirect());
+
+// Root: redirect visitors to their language.
+fs.writeFileSync(path.join(ROOT, "index.html"), redirectPage({ robots: "noindex" }));
 console.log("built /index.html (redirect)");
+
+// 404: GitHub Pages serves this for any unmatched path (e.g. /jp/, /english,
+// stale links). Same language picker, so typos still land on a real page.
+fs.writeFileSync(path.join(ROOT, "404.html"), redirectPage({ robots: "noindex, follow" }));
+console.log("built /404.html (redirect)");
