@@ -1,50 +1,124 @@
 #!/usr/bin/env node
 /*
- * Renders the QuickLesson landing page into one static page per language:
- *   /ja/index.html  /en/index.html  /fr/index.html  /es/index.html
- * plus a root /index.html that redirects to the visitor's language.
+ * Renders every page of the QuickLesson site from shared parts:
+ *   _build/layout.html            outer shell (<head> + slots)
+ *   _build/partials/header.html   promo bar + <header> (reused everywhere)
+ *   _build/partials/footer.html   <footer> (reused everywhere)
+ *   _build/pages/lp.html          the landing-page body
+ *   _build/pages/seo/*.html       one file per SEO landing page (written by hand)
+ *   _build/i18n.js                shared copy for the 4 language LPs
  *
- * Inputs:  _build/template.html  +  _build/i18n.js
- * Run:     node _build/build.js   (from the repo root)
+ * Output (committed to the repo — do not hand-edit):
+ *   /ja/ /en/ /fr/ /es/ index.html        language landing pages
+ *   /en/japanese-speaking-practice/…      SEO landing pages
+ *   /index.html /404.html                 language redirects
  *
- * The generated files are committed to the repo — do not hand-edit them.
- * Edit the template or the copy in _build/, then re-run this script.
+ * Run from the repo root:  node _build/build.js
+ * To add an SEO page: write _build/pages/seo/<lang>-<slug>.html, add an entry
+ * to the PAGES array below, re-run the build, commit the generated folder.
  */
 const fs = require("fs");
 const path = require("path");
 const { titles, descriptions, ogDescriptions, ogLocales, translations } = require("./i18n");
 
 const ROOT = path.join(__dirname, "..");
+const BASE = "https://quicklesson5min.com";
 const LANGS = ["ja", "en", "fr", "es"];
 const DEFAULT_LANG = "ja";
 
-const template = fs.readFileSync(path.join(__dirname, "template.html"), "utf8");
+const read = (p) => fs.readFileSync(path.join(__dirname, p), "utf8");
+const layout = read("layout.html");
+const headerPartial = read("partials/header.html");
+const footerPartial = read("partials/footer.html");
 
-function render(lang) {
-  const t = translations[lang];
-  if (!t) throw new Error(`No translations for "${lang}"`);
+// hreflang cluster shared by the 4 language landing pages
+const LP_HREFLANG = [
+  ...LANGS.map((l) => `  <link rel="alternate" hreflang="${l}" href="${BASE}/${l}/" />`),
+  `  <link rel="alternate" hreflang="x-default" href="${BASE}/${DEFAULT_LANG}/" />`,
+].join("\n");
+const LP_LANG_URLS = Object.fromEntries(LANGS.map((l) => [l, `/${l}/`]));
 
-  let html = template
-    .split("{{LANG}}").join(lang)
-    .split("{{TITLE}}").join(titles[lang])
-    .split("{{META_DESC}}").join(descriptions[lang])
-    .split("{{OG_DESC}}").join(ogDescriptions[lang])
-    .split("{{OG_LOCALE}}").join(ogLocales[lang]);
+/* --------------------------------------------------------------------------
+ * Page manifest. Landing pages are generated from i18n.js; SEO pages carry
+ * their own metadata and point at a hand-written body file.
+ * ------------------------------------------------------------------------ */
+const PAGES = [
+  ...LANGS.map((lang) => ({
+    lang,
+    out: `${lang}/index.html`,
+    body: "pages/lp.html",
+    strings: translations[lang],
+    title: titles[lang],
+    metaDesc: descriptions[lang],
+    ogDesc: ogDescriptions[lang],
+    ogType: "website",
+    ogLocale: ogLocales[lang],
+    canonical: `${BASE}/${lang}/`,
+    hreflang: LP_HREFLANG,
+    langUrls: LP_LANG_URLS,
+    navPrefix: "",
+    home: "#top",
+  })),
 
-  for (const [key, value] of Object.entries(t)) {
-    html = html.split(`{{${key}}}`).join(value);
-  }
+  {
+    lang: "en",
+    out: "en/japanese-speaking-practice/index.html",
+    body: "pages/seo/en-japanese-speaking-practice.html",
+    strings: translations.en, // header / footer chrome only
+    title: "Japanese Speaking Practice: How to Practice Speaking Japanese Online",
+    metaDesc:
+      "Looking for more opportunities to speak Japanese? Discover practical ways to practice Japanese conversation online, even if you only have a few minutes a day.",
+    ogDesc:
+      "Practical ways to practice speaking Japanese online, even with only a few minutes a day.",
+    ogType: "article",
+    ogLocale: "en_US",
+    canonical: `${BASE}/en/japanese-speaking-practice/`,
+    // Only the EN version exists today. When the FR / ES articles are written,
+    // add their <link rel="alternate" hreflang="…"> lines here.
+    hreflang: `  <link rel="alternate" hreflang="en" href="${BASE}/en/japanese-speaking-practice/" />`,
+    langUrls: LP_LANG_URLS, // no translated article yet → language switch falls back to the LP
+    navPrefix: "/en/",
+    home: "/en/",
+  },
+];
+
+/* ---- render -------------------------------------------------------------- */
+function fill(str, map) {
+  for (const [k, v] of Object.entries(map)) str = str.split(`{{${k}}}`).join(v);
+  return str;
+}
+
+function build(page) {
+  const chrome = { ...page.strings, HOME: page.home, NAV_PREFIX: page.navPrefix };
+  const html = fill(layout, {
+    LANG: page.lang,
+    TITLE: page.title,
+    META_DESC: page.metaDesc,
+    OG_DESC: page.ogDesc,
+    OG_TYPE: page.ogType,
+    OG_LOCALE: page.ogLocale,
+    CANONICAL_URL: page.canonical,
+    HEAD_LINKS: `  <link rel="canonical" href="${page.canonical}" />\n${page.hreflang}`,
+    LANG_URLS_JSON: JSON.stringify(page.langUrls),
+    HEADER: fill(headerPartial, chrome),
+    BODY: fill(read(page.body), page.strings),
+    FOOTER: fill(footerPartial, chrome),
+  });
 
   const leftover = html.match(/\{\{[A-Za-z0-9_]+\}\}/g);
   if (leftover) {
-    throw new Error(`Unresolved placeholders for "${lang}": ${[...new Set(leftover)].join(", ")}`);
+    throw new Error(`${page.out}: unresolved placeholder(s) ${[...new Set(leftover)].join(", ")}`);
   }
-  return html;
+
+  const outPath = path.join(ROOT, page.out);
+  fs.mkdirSync(path.dirname(outPath), { recursive: true });
+  fs.writeFileSync(outPath, html);
+  console.log(`built /${page.out}`);
 }
 
-// Shared client-side language picker: maps the first path segment to a
-// supported language (with a few common aliases like /jp/ -> /ja/), then
-// falls back to the browser language, then to the default.
+PAGES.forEach(build);
+
+/* ---- redirect pages (root + 404) --------------------------------------- */
 const LANG_PICKER = `(function () {
       var supported = { ${LANGS.map((l) => `${l}: 1`).join(", ")} };
       var aliases = { jp: "ja", jpn: "ja", nihongo: "ja", eng: "en", english: "en", us: "en", gb: "en", uk: "en", fra: "fr", french: "fr", spa: "es", spanish: "es" };
@@ -59,7 +133,7 @@ const LANG_PICKER = `(function () {
 
 function redirectPage({ robots }) {
   const alternates = LANGS
-    .map((l) => `  <link rel="alternate" hreflang="${l}" href="https://quicklesson5min.com/${l}/" />`)
+    .map((l) => `  <link rel="alternate" hreflang="${l}" href="${BASE}/${l}/" />`)
     .join("\n");
   return `<!DOCTYPE html>
 <html lang="${DEFAULT_LANG}">
@@ -68,9 +142,9 @@ function redirectPage({ robots }) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="${robots}" />
   <title>QuickLesson</title>
-  <link rel="canonical" href="https://quicklesson5min.com/${DEFAULT_LANG}/" />
+  <link rel="canonical" href="${BASE}/${DEFAULT_LANG}/" />
 ${alternates}
-  <link rel="alternate" hreflang="x-default" href="https://quicklesson5min.com/${DEFAULT_LANG}/" />
+  <link rel="alternate" hreflang="x-default" href="${BASE}/${DEFAULT_LANG}/" />
   <meta http-equiv="refresh" content="0; url=/${DEFAULT_LANG}/" />
   <script>
     ${LANG_PICKER}
@@ -83,18 +157,7 @@ ${alternates}
 `;
 }
 
-for (const lang of LANGS) {
-  const dir = path.join(ROOT, lang);
-  fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, "index.html"), render(lang));
-  console.log(`built /${lang}/index.html`);
-}
-
-// Root: redirect visitors to their language.
 fs.writeFileSync(path.join(ROOT, "index.html"), redirectPage({ robots: "noindex" }));
 console.log("built /index.html (redirect)");
-
-// 404: GitHub Pages serves this for any unmatched path (e.g. /jp/, /english,
-// stale links). Same language picker, so typos still land on a real page.
 fs.writeFileSync(path.join(ROOT, "404.html"), redirectPage({ robots: "noindex, follow" }));
 console.log("built /404.html (redirect)");

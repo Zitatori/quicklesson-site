@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{META_DESC}}" />
+  <meta name="theme-color" content="#111827" />
+  <title>{{TITLE}}</title>
+
+{{HEAD_LINKS}}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7W7G2KZV7L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7W7G2KZV7L');
+  </script>
+
+  <!-- Google Search Consoleは、取得したmetaタグを<head>内に追加 -->
+
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{OG_DESC}}">
+  <meta property="og:type" content="{{OG_TYPE}}">
+  <meta property="og:url" content="{{CANONICAL_URL}}">
+  <meta property="og:locale" content="{{OG_LOCALE}}">
+  <script>window.QL_LANG_URLS = {{LANG_URLS_JSON}};</script>
+</head>
+<body>
+{{HEADER}}
+{{BODY}}
+{{FOOTER}}
+  <script src="/script.js"></script>
+</body>
+</html>

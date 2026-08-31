@@ -9,29 +9,46 @@
 - ホスティングは GitHub Pages（`main` ブランチ / ルート）。`main` に push すると自動デプロイ。
 - リポジトリ: https://github.com/Zitatori/quicklesson-site
 
-## 言語別ページ（ビルドが必要）
-文章は言語ごとに独立したページ（`/ja/` `/en/` `/fr/` `/es/`）として事前生成しています。
-各ページには hreflang（`ja` / `en` / `fr` / `es` / `x-default=ja`）と canonical を出力済み。
+## ページ生成（ビルドが必要）
+全ページを共通パーツから `node _build/build.js` で生成しています。生成物は直接編集しない。
 
-- **ソース**（ここを編集する）
-  - `_build/i18n.js` … 全言語の文章・タイトル・meta description
-  - `_build/template.html` … 共通のHTML構造（`{{key}}` プレースホルダ）
-- **生成物**（直接編集しない）
-  - `ja/index.html` `en/index.html` `fr/index.html` `es/index.html`
-  - `index.html` … 訪問者の言語へ振り分けるリダイレクトページ
-- **ビルド**: リポジトリ直下で
-  ```
-  node _build/build.js
-  ```
-  文章やHTMLを変えたら再実行し、生成された `*/index.html` と `index.html` も一緒にコミットする。
+**共通パーツ（ここを編集する）**
+- `_build/layout.html` … 外枠（`<head>` ＋ スロット）
+- `_build/partials/header.html` … プロモバー＋ヘッダー（全ページ共通）
+- `_build/partials/footer.html` … フッター（全ページ共通）
+- `_build/pages/lp.html` … 言語別LPの本文
+- `_build/pages/seo/<lang>-<slug>.html` … SEO固定ページの本文（1ページ1ファイル）
+- `_build/i18n.js` … 言語別LPの全文言・タイトル・meta description
+- `_build/build.js` … `PAGES` 配列＝生成対象の一覧
 
-言語切り替え（ヘッダーの `<select>`）は `script.js` が `/<lang>/` へ遷移させます。
-GA4（`G-7W7G2KZV7L`）は `_build/template.html` の `<head>` に1回だけ入れてあり、4ページすべてに出力されます。
+**生成物**
+- `ja|en|fr|es/index.html` … 言語別LP（hreflang: `ja`/`en`/`fr`/`es`/`x-default=ja`、canonical＝自URL）
+- `en/japanese-speaking-practice/index.html` … SEO固定ページ（canonical＝自URL）
+- `index.html` / `404.html` … 訪問者の言語へ振り分けるリダイレクト
+
+**ビルド**
+```
+node _build/build.js
+```
+編集後に再実行し、生成された `*/index.html` を一緒にコミットする。
+
+- 言語切り替え（ヘッダーの `<select>`）は各ページが埋め込む `window.QL_LANG_URLS` を使って遷移。SEOページに翻訳版が無ければ `/<lang>/`（LP）にフォールバック。
+- 資産参照は絶対パス（`/styles.css` `/script.js`）。ページの階層に依存しない。
+- GA4（`G-7W7G2KZV7L`）は `_build/layout.html` の `<head>` に1回 → 全ページに出力。
+
+## SEO固定ページを追加する手順
+1. `_build/pages/seo/<lang>-<slug>.html` に本文を書く（既存クラス `.article` `.section` `.container` `.btn` `.cta-box` 等を利用）
+2. `_build/build.js` の `PAGES` にエントリを1つ追加（`out` / `title` / `metaDesc` / `canonical` / `hreflang` / `body` など）
+3. `node _build/build.js` → 生成された `<lang>/<slug>/index.html` をコミット
+4. 同じ記事を他言語でも作ったら、両ページの `hreflang` にお互いの `<link rel="alternate">` を追記して再ビルド
+
+現状の例: `/en/japanese-speaking-practice/`（英語のみ。FR/ESは未作成）
 
 ## ファイル
-- `_build/` : ページ生成のソース（`i18n.js` / `template.html` / `build.js`）
-- `ja|en|fr|es/index.html` : 生成された各言語ページ
-- `index.html` : 言語リダイレクト（生成物）
+- `_build/` : ページ生成のソース（`layout.html` / `partials/` / `pages/` / `i18n.js` / `build.js`）
+- `ja|en|fr|es/index.html` : 生成された各言語LP
+- `en/japanese-speaking-practice/index.html` : 生成されたSEO固定ページ
+- `index.html` / `404.html` : 言語リダイレクト（生成物）
 - `styles.css` : デザイン（全ページ共通）
 - `script.js` : 年号表示 ＋ 言語 `<select>` の遷移
 - `.nojekyll` : GitHub Pages の Jekyll 処理を無効化（静的ファイルをそのまま配信）
