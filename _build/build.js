@@ -45,7 +45,10 @@ const GUIDES = {
     { href: "/ja/spanish-speaking-practice/", label: "趣味で始めるスペイン語" },
     { href: "/ja/french-speaking-practice/", label: "海外生活とフランス語" },
   ],
-  en: [{ href: "/en/japanese-speaking-practice/", label: "Japanese speaking practice" }],
+  en: [
+    { href: "/en/japanese-speaking-practice/", label: "Japanese speaking practice" },
+    { href: "/en/spanish-speaking-practice/", label: "Spanish speaking practice" },
+  ],
   fr: [],
   es: [],
 };
@@ -139,6 +142,25 @@ const PAGES = [
     langUrls: LP_LANG_URLS,
     navPrefix: "/ja/",
     home: "/ja/",
+  },
+
+  {
+    lang: "en",
+    out: "en/spanish-speaking-practice/index.html",
+    body: "pages/seo/en-spanish-speaking-practice.html",
+    strings: translations.en, // header / footer chrome only
+    title: "How to Start Speaking Spanish When You're Still a Beginner",
+    metaDesc:
+      "Studied Spanish but can't speak it, or starting from zero? Here's how to begin practicing Spanish conversation — even with just five minutes and a few sentences.",
+    ogDesc:
+      "How to begin practicing spoken Spanish as a beginner, five minutes at a time.",
+    ogType: "article",
+    ogLocale: "en_US",
+    canonical: `${BASE}/en/spanish-speaking-practice/`,
+    hreflang: `  <link rel="alternate" hreflang="en" href="${BASE}/en/spanish-speaking-practice/" />`,
+    langUrls: LP_LANG_URLS,
+    navPrefix: "/en/",
+    home: "/en/",
   },
 
   {
