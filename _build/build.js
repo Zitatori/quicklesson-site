@@ -39,18 +39,20 @@ const LP_HREFLANG = [
 const LP_LANG_URLS = Object.fromEntries(LANGS.map((l) => [l, `/${l}/`]));
 
 // SEO topic cluster: "practice speaking Japanese online" for non-Japanese
-// speakers, published in EN and ES. These are hreflang alternates of each
-// other; the language switch on either page hops to the sibling.
+// speakers, published in EN, ES and FR. These are hreflang alternates of each
+// other; the language switch on any of them hops to the sibling.
 const JP_PRACTICE = {
   hreflang: [
     `  <link rel="alternate" hreflang="en" href="${BASE}/en/japanese-speaking-practice/" />`,
     `  <link rel="alternate" hreflang="es" href="${BASE}/es/japanese-speaking-practice/" />`,
+    `  <link rel="alternate" hreflang="fr" href="${BASE}/fr/japanese-speaking-practice/" />`,
     `  <link rel="alternate" hreflang="x-default" href="${BASE}/en/japanese-speaking-practice/" />`,
   ].join("\n"),
   langUrls: {
     ...LP_LANG_URLS,
     en: "/en/japanese-speaking-practice/",
     es: "/es/japanese-speaking-practice/",
+    fr: "/fr/japanese-speaking-practice/",
   },
 };
 
@@ -65,7 +67,7 @@ const GUIDES = {
     { href: "/en/japanese-speaking-practice/", label: "Japanese speaking practice" },
     { href: "/en/spanish-speaking-practice/", label: "Spanish speaking practice" },
   ],
-  fr: [],
+  fr: [{ href: "/fr/japanese-speaking-practice/", label: "Japonais en couple" }],
   es: [
     { href: "/es/japanese-speaking-practice/", label: "Practicar japonés online" },
     { href: "/es/french-speaking-practice/", label: "Francés para el trabajo" },
@@ -199,6 +201,26 @@ const PAGES = [
     langUrls: JP_PRACTICE.langUrls,
     navPrefix: "/en/",
     home: "/en/",
+  },
+
+  {
+    lang: "fr",
+    out: "fr/japanese-speaking-practice/index.html",
+    body: "pages/seo/fr-japanese-speaking-practice.html",
+    strings: translations.fr, // header / footer chrome only
+    title:
+      "Votre partenaire est japonais(e) ? Pourquoi apprendre le japonais peut changer votre vie de couple et de famille",
+    metaDesc:
+      "Votre partenaire est japonais(e) ? Apprendre le japonais peut devenir bien plus qu'un hobby. Pourquoi commencer à parler dès maintenant, cinq minutes à la fois.",
+    ogDesc:
+      "Quand votre partenaire est japonais(e), apprendre le japonais devient une affaire de famille.",
+    ogType: "article",
+    ogLocale: "fr_FR",
+    canonical: `${BASE}/fr/japanese-speaking-practice/`,
+    hreflang: JP_PRACTICE.hreflang,
+    langUrls: JP_PRACTICE.langUrls,
+    navPrefix: "/fr/",
+    home: "/fr/",
   },
 
   {
