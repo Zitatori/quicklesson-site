@@ -38,6 +38,27 @@ const LP_HREFLANG = [
 ].join("\n");
 const LP_LANG_URLS = Object.fromEntries(LANGS.map((l) => [l, `/${l}/`]));
 
+// SEO landing pages linked from the footer, per language. Keep the labels short.
+const GUIDES = {
+  ja: [],
+  en: [{ href: "/en/japanese-speaking-practice/", label: "Japanese speaking practice" }],
+  fr: [],
+  es: [],
+};
+const GUIDE_LABELS = { ja: "ガイド", en: "Guides", fr: "Guides", es: "Guías" };
+
+function guidesBlock(lang) {
+  const items = GUIDES[lang] || [];
+  if (!items.length) return "";
+  const links = items
+    .map((g) => `<a href="${g.href}">${g.label}</a>`)
+    .join("\n      ");
+  return `    <div class="container footer-guides">
+      <span>${GUIDE_LABELS[lang]}</span>
+      ${links}
+    </div>\n`;
+}
+
 /* --------------------------------------------------------------------------
  * Page manifest. Landing pages are generated from i18n.js; SEO pages carry
  * their own metadata and point at a hand-written body file.
@@ -89,7 +110,12 @@ function fill(str, map) {
 }
 
 function build(page) {
-  const chrome = { ...page.strings, HOME: page.home, NAV_PREFIX: page.navPrefix };
+  const chrome = {
+    ...page.strings,
+    HOME: page.home,
+    NAV_PREFIX: page.navPrefix,
+    GUIDES_BLOCK: guidesBlock(page.lang),
+  };
   const html = fill(layout, {
     LANG: page.lang,
     TITLE: page.title,

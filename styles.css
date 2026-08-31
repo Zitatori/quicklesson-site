@@ -301,6 +301,10 @@ footer { background:#0b0f17;color:#fff;padding:54px 0 24px; }
 .footer-brand .brand-word span { color:#a5b4fc; }
 .footer-grid p { color:#9da4af;font-size:13px; }
 .footer-links { display:flex;gap:18px;font-size:12px;color:#c1c6cf; }
+.footer-guides { display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px;margin-top:26px;font-size:12px; }
+.footer-guides > span { color:#6b7280;text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:700; }
+.footer-guides a { color:#9da4af; }
+.footer-guides a:hover { color:#fff; }
 .copyright { border-top:1px solid #252b35;margin-top:34px;padding-top:20px;color:#727987;font-size:11px; }
 
 @media (max-width: 900px) {
