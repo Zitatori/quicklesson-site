@@ -68,12 +68,12 @@ node _build/build.js
 
 ## 公開前に必ず変えるところ
 1. 講師応募メール
-   - 現在は `zitatori@gmail.com`。専用アドレスやGoogleフォームに切り替える場合は `_build/template.html` の `#teach` と `_build/i18n.js` の `mailNote` を変更して再ビルド。
-2. 必要に応じてQuickLesson本体URL
-   - 現在は `https://django-5min-languageapp.onrender.com/`
+   - 現在は `zitatori@gmail.com`。専用アドレスやGoogleフォームに切り替える場合は `_build/pages/lp.html` の `#teach` と `_build/i18n.js` の `mailNote` を変更して再ビルド。
+2. QuickLesson 本体（アプリ）URL
+   - 現在は `https://app.quicklesson5min.com/`（`_build/build.js` の `APP_URL` 定数。全ページの「start」系リンクはここを参照）
 3. Google Analytics … GA4（`G-7W7G2KZV7L`）導入済み。
 4. Google Search Console
-   - 所有権確認用metaタグを `_build/template.html` の `<head>` に追加して再ビルド
+   - 所有権確認用metaタグを `_build/layout.html` の `<head>` に追加して再ビルド
 5. `sitemap.xml`（4言語URL＋hreflang）と `robots.txt` を追加すると尚良い
 6. 利用規約・プライバシーポリシーの公開ページがあればフッターからリンク
 

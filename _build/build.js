@@ -23,6 +23,7 @@ const { titles, descriptions, ogDescriptions, ogLocales, translations } = requir
 
 const ROOT = path.join(__dirname, "..");
 const BASE = "https://quicklesson5min.com";
+const APP_URL = "https://app.quicklesson5min.com/"; // the QuickLesson web app; every "start" link points here
 const LANGS = ["ja", "en", "fr", "es"];
 const DEFAULT_LANG = "ja";
 
@@ -273,6 +274,7 @@ function fill(str, map) {
 function build(page) {
   const chrome = {
     ...page.strings,
+    APP_URL,
     HOME: page.home,
     NAV_PREFIX: page.navPrefix,
     GUIDES_BLOCK: guidesBlock(page.lang),
@@ -288,7 +290,7 @@ function build(page) {
     HEAD_LINKS: `  <link rel="canonical" href="${page.canonical}" />\n${page.hreflang}`,
     LANG_URLS_JSON: JSON.stringify(page.langUrls),
     HEADER: fill(headerPartial, chrome),
-    BODY: fill(read(page.body), page.strings),
+    BODY: fill(read(page.body), { ...page.strings, APP_URL }),
     FOOTER: fill(footerPartial, chrome),
   });
 
