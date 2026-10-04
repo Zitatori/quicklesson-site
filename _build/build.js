@@ -290,7 +290,21 @@ function build(page) {
     HEAD_LINKS: `  <link rel="canonical" href="${page.canonical}" />\n${page.hreflang}`,
     LANG_URLS_JSON: JSON.stringify(page.langUrls),
     HEADER: fill(headerPartial, chrome),
-    BODY: fill(read(page.body), { ...page.strings, APP_URL }),
+    BODY: fill(read(page.body), {
+      ...page.strings,
+      APP_URL,
+      EXTRA_FEATURE: page.lang === "fr" ? `
+          <article class="feature-card">
+            <div class="icon-box">✦</div>
+            <h3>${page.strings.feature4Title}</h3>
+            <p>${page.strings.feature4Text}</p>
+          </article>` : "",
+      FOR_HEADING: page.lang === "fr"
+        ? `<h2 class="for-you-title">${page.strings.forKicker}</h2>
+          <p>${page.strings.forTitle}</p>`
+        : `<p class="eyebrow-label">${page.strings.forKicker}</p>
+          <h2>${page.strings.forTitle}</h2>`,
+    }),
     FOOTER: fill(footerPartial, chrome),
   });
 
