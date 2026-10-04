@@ -344,3 +344,17 @@ footer { background:#0b0f17;color:#fff;padding:54px 0 24px; }
   .cta-box { padding:48px 24px;border-radius:28px; }
   .cta-section { padding-bottom:76px; }
 }
+
+/* French landing-page copy: four features and a prominent audience heading. */
+html[lang="fr"] #for-you .for-you-title {
+  font-size: clamp(34px, 4.7vw, 58px);
+  font-weight: 700;
+  letter-spacing: -.055em;
+}
+@media (min-width: 901px) {
+  html[lang="fr"] #why .feature-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  html[lang="fr"] #for-you .for-you-title { font-size: 38px; }
+  html[lang="fr"] .nav { gap: 12px; }
+}
