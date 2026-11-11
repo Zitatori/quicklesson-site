@@ -1,0 +1,260 @@
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">{{eyebrow}}</div>
+          <h1>{{heroTitle}}</h1>
+          <p class="hero-lead">{{heroLead}}</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="{{SIGNUP_URL}}" target="_blank" rel="noopener">{{startNow}}</a>
+            <a class="text-link" href="#how">{{seeHow}}</a>
+          </div>
+
+          <p><a class="text-link" href="#pricing">{{pricingLink}} →</a></p>
+          <p class="availability-note">{{availabilityText}} <a class="text-link" href="{{APP_URL}}">{{availabilityLink}} →</a></p>
+
+          <div class="hero-meta">
+            <span>{{meta1}}</span>
+            <span>{{meta2}}</span>
+            <span>{{meta3}}</span>
+            <span class="meta-bonus">{{meta4}}</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="phone">
+            <div class="phone-top"></div>
+            <div class="phone-screen">
+              <div class="mini-header">
+                <span class="mini-word">Quick<span>Lesson</span></span>
+                <span class="mini-lang">{{mockNote}}</span>
+              </div>
+              <div class="app-body">
+                <span class="lesson-pill">{{mockPill}}</span>
+                <h4 class="app-title">{{mockTitle}}</h4>
+                <p class="app-sub">{{mockSub}}</p>
+
+                <div class="lang-grid">
+                  <div class="lang-tile lt-en">
+                    <span class="lang-flag">🇬🇧</span>
+                    <b>English</b>
+                    <span class="lang-status">{{mockStatus}}</span>
+                  </div>
+                  <div class="lang-tile lt-fr">
+                    <span class="lang-flag">🇫🇷</span>
+                    <b>Français</b>
+                    <span class="lang-status">{{mockStatus}}</span>
+                  </div>
+                  <div class="lang-tile lt-es">
+                    <span class="lang-flag">🇪🇸</span>
+                    <b>Español</b>
+                    <span class="lang-status">{{mockStatus}}</span>
+                  </div>
+                  <div class="lang-tile lt-ja">
+                    <span class="lang-flag">🇯🇵</span>
+                    <b>日本語</b>
+                    <span class="lang-status">{{mockStatus}}</span>
+                  </div>
+                </div>
+
+                <div class="app-cta">{{mockCta}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="floating-card card-one">
+            <strong>{{smallEnough}}</strong>
+            <span>{{smallEnoughSub}}</span>
+          </div>
+          <div class="floating-card card-two">
+            <span class="spark">✦</span>
+            <span>{{languageMix}}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="language-strip">
+      <div class="container strip-inner">
+        <span>{{practice}}</span>
+        <b>English</b>
+        <span>•</span>
+        <b>日本語</b>
+        <span>•</span>
+        <b>Français</b>
+        <span>•</span>
+        <b>Español</b>
+      </div>
+    </section>
+
+    <section class="section alt" id="pricing">
+      <div class="container">
+        <div class="section-head"><h2>{{pricingTitle}}</h2><p>{{bonusText}}</p></div>
+        <label for="referenceCurrency">{{referenceLabel}}</label>
+        <select id="referenceCurrency" class="language-select"><option value="CHF">CHF</option><option value="EUR">EUR (€)</option><option value="JPY">JPY (¥)</option></select>
+        <div class="pricing-grid">
+          <article class="feature-card"><h3>{{conversationPrice}}</h3><p class="reference-amount" data-chf="1" aria-live="polite"></p></article>
+          <article class="feature-card"><h3>{{goldPrice}}</h3><p class="reference-amount" data-chf="100" aria-live="polite"></p></article>
+        </div>
+        <p>{{priceNote}}</p>
+        <p class="rate-source"><a href="https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml">{{rateLabel}}</a></p>
+      </div>
+    </section>
+
+    <section class="section" id="why">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">{{whyKicker}}</p>
+          <h2>{{whyTitle}}</h2>
+          <p>{{whyLead}}</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="icon-box">5</div>
+            <h3>{{feature1Title}}</h3>
+            <p>{{feature1Text}}</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon-box">↗</div>
+            <h3>{{feature2Title}}</h3>
+            <p>{{feature2Text}}</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon-box">◎</div>
+            <h3>{{feature3Title}}</h3>
+            <p>{{feature3Text}}</p>
+          </article>{{EXTRA_FEATURE}}
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="how">
+      <div class="container">
+        <div class="section-head narrow">
+          <p class="kicker">{{howKicker}}</p>
+          <h2>{{howTitle}}</h2>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <span class="step-number">01</span>
+            <div>
+              <h3>{{step1Title}}</h3>
+              <p>{{step1Text}}</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">02</span>
+            <div>
+              <h3>{{step2Title}}</h3>
+              <p>{{step2Text}}</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">03</span>
+            <div>
+              <h3>{{step3Title}}</h3>
+              <p>{{step3Text}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="center">
+          <a class="btn btn-primary" href="{{SIGNUP_URL}}" target="_blank" rel="noopener">{{tryQuickLesson}}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section supplementary" id="beginner">
+      <div class="container split">
+        <div><h2>{{beginnerTitle}}</h2><p>{{beginnerText}}</p></div>
+        <div><h3>{{reviewTitle}}</h3><p>{{reviewText}}</p>
+          <a class="text-link" href="https://app.quicklesson5min.com/study-notes/">{{reviewLink}} →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section supplementary" id="for-you">
+      <div class="container split">
+        <div>
+          {{FOR_HEADING}}
+        </div>
+        <div class="use-list">
+          <div class="use-item">
+            <span>01</span>
+            <p>{{use1}}</p>
+          </div>
+          <div class="use-item">
+            <span>02</span>
+            <p>{{use2}}</p>
+          </div>
+          <div class="use-item">
+            <span>03</span>
+            <p>{{use3}}</p>
+          </div>
+          <div class="use-item">
+            <span>04</span>
+            <p>{{use4}}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="safety">
+      <div class="container safety-grid">
+        <div>
+          <p class="kicker light">{{safetyKicker}}</p>
+          <h2>{{safetyTitle}}</h2>
+          <p class="muted">{{safetyLead}}</p>
+        </div>
+        <div class="safety-list">
+          <div>
+            <strong>{{safe1Title}}</strong>
+            <span>{{safe1Text}}</span>
+          </div>
+          <div>
+            <strong>{{safe2Title}}</strong>
+            <span>{{safe2Text}}</span>
+          </div>
+          <div>
+            <strong>{{safe3Title}}</strong>
+            <span>{{safe3Text}}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="teach">
+      <div class="container teacher-card">
+        <div>
+          <p class="kicker">{{teachKicker}}</p>
+          <h2>{{teachTitle}}</h2>
+          <p>{{teachText}}</p>
+        </div>
+        <a class="btn btn-outline" href="mailto:zitatori@gmail.com?subject=QuickLesson%20Tutor%20Application">{{teachButton}}</a>
+      </div>
+      <div class="founder-note container">
+        <p>{{founderNote}}</p>
+        <p class="founder-sign">{{founderSign}}</p>
+      </div>
+      <p class="placeholder-note container">{{mailNote}}</p>
+    </section>
+
+    <section class="section supplementary" id="install">
+      <div class="container">
+        <h2>{{installTitle}}</h2><p>{{installIntro}}</p>
+        <div class="install-instructions"><p data-install-platform="ios">{{installIos}}</p><p data-install-platform="android">{{installAndroid}}</p></div>
+        <a class="btn btn-outline" href="{{APP_URL}}">{{openApp}}</a>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-box">
+        <p class="kicker">{{ctaKicker}}</p>
+        <h2>{{ctaTitle}}</h2>
+        <p>{{ctaText}}</p>
+        <a class="btn btn-light" href="{{SIGNUP_URL}}" target="_blank" rel="noopener">{{startFree}}</a>
+      </div>
+    </section>
+  </main>
