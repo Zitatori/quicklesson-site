@@ -275,6 +275,8 @@ function build(page) {
   const chrome = {
     ...page.strings,
     APP_URL,
+    SIGNUP_URL: `${APP_URL}signup/`,
+    LOGIN_URL: `${APP_URL}accounts/login/`,
     HOME: page.home,
     NAV_PREFIX: page.navPrefix,
     GUIDES_BLOCK: guidesBlock(page.lang),
@@ -293,6 +295,8 @@ function build(page) {
     BODY: fill(read(page.body), {
       ...page.strings,
       APP_URL,
+    SIGNUP_URL: `${APP_URL}signup/`,
+    LOGIN_URL: `${APP_URL}accounts/login/`,
       EXTRA_FEATURE: page.lang === "fr" ? `
           <article class="feature-card">
             <div class="icon-box">✦</div>

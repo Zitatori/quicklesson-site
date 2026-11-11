@@ -24,3 +24,31 @@
     window.location.href = map[lang] || "/" + lang + "/";
   });
 })();
+
+// Only the app origin is installable; these are instructions, not an LP install prompt.
+(function () {
+  var ua = navigator.userAgent || "";
+  var ios = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  var platform = ios ? "ios" : /Android/.test(ua) ? "android" : null;
+  if (!platform) return; // Desktop and unknown devices retain both instructions.
+  document.querySelectorAll("[data-install-platform]").forEach(function (item) {
+    item.hidden = item.getAttribute("data-install-platform") !== platform;
+  });
+})();
+
+// ECB reference snapshot, 2026-11-10: EUR 1 = CHF 0.9203 = JPY 177.38.
+// Display only: official CHF prices always remain visible.
+(function () {
+  var select = document.getElementById('referenceCurrency');
+  if (!select) return;
+  var rates = { CHF: 1, EUR: 1 / 0.9203, JPY: 177.38 / 0.9203 };
+  function update() {
+    document.querySelectorAll('[data-chf]').forEach(function (item) {
+      item.textContent = select.value === 'CHF' ? '' : '≈ ' + new Intl.NumberFormat(document.documentElement.lang, {
+        style: 'currency', currency: select.value
+      }).format(Number(item.getAttribute('data-chf')) * rates[select.value]);
+    });
+  }
+  select.addEventListener('change', update);
+  update();
+})();
