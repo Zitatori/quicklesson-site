@@ -123,7 +123,10 @@ const translations = {
     "priceNote": "決済価格はCHFです。円・ユーロは参考換算額で、為替や決済手数料により実際の金額は異なります。",
     "referenceLabel": "参考通貨",
     "rateLabel": "換算基準日：2026年11月10日（ECB）",
-    "pricingLink": "料金を見る"
+    "pricingLink": "料金を見る",
+    "pressTitle": "地元紙で紹介されました",
+    "pressText": "地元紙「Journal de Fully」で、QuickLessonと開発者Misuzu Ditmeyerのサービスづくりの歩みが紹介されました。",
+    "pressLink": "記事を読む（フランス語）"
   },
   "en": {
     "navHow": "How it works",
@@ -220,7 +223,10 @@ const translations = {
     "priceNote": "Checkout prices are in CHF. EUR and JPY amounts are reference conversions; exchange rates and payment fees may affect the amount you pay.",
     "referenceLabel": "Reference currency",
     "rateLabel": "Reference rates: 10 November 2026 (ECB)",
-    "pricingLink": "See pricing"
+    "pricingLink": "See pricing",
+    "pressTitle": "Featured in the local press",
+    "pressText": "The Journal de Fully features QuickLesson and the story of its creator, Misuzu Ditmeyer.",
+    "pressLink": "Read the article (in French)"
   },
   "fr": {
     "navHow": "Comment ça marche",
@@ -319,7 +325,10 @@ const translations = {
     "priceNote": "Les prix de paiement sont en CHF. Les montants en euros et en yens sont indicatifs ; le taux de change et les frais de paiement peuvent modifier le montant débité.",
     "referenceLabel": "Devise indicative",
     "rateLabel": "Taux de référence : 10 novembre 2026 (BCE)",
-    "pricingLink": "Voir les tarifs"
+    "pricingLink": "Voir les tarifs",
+    "pressTitle": "La presse locale parle de QuickLesson",
+    "pressText": "Le Journal de Fully présente QuickLesson et le parcours de sa créatrice, Misuzu Ditmeyer.",
+    "pressLink": "Lire l’article"
   },
   "es": {
     "navHow": "Cómo funciona",
@@ -416,7 +425,10 @@ const translations = {
     "priceNote": "Los precios de pago están en CHF. Los importes en euros y yenes son orientativos; el tipo de cambio y las comisiones pueden modificar el importe final.",
     "referenceLabel": "Moneda orientativa",
     "rateLabel": "Tipos de referencia: 10 de noviembre de 2026 (BCE)",
-    "pricingLink": "Ver precios"
+    "pricingLink": "Ver precios",
+    "pressTitle": "QuickLesson en la prensa local",
+    "pressText": "El Journal de Fully presenta QuickLesson y la trayectoria de su creadora, Misuzu Ditmeyer.",
+    "pressLink": "Leer el artículo (en francés)"
   }
 };
 
